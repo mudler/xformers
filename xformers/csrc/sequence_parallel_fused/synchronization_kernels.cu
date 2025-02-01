@@ -8,9 +8,7 @@
 #include <cuda/std/chrono>
 
 // CUDA atomics are only supported for sm_60+ on *nix and sm_70+ on Windows.
-#define CUDA_ARCH_SUPPORTS_ATOMICS                    \
-  (!defined(__CUDA_ARCH__) || __CUDA_ARCH__ >= 700 || \
-   (!defined(_MSC_VER) && __CUDA_ARCH__ >= 600))
+#define CUDA_ARCH_SUPPORTS_ATOMICS 0
 #if CUDA_ARCH_SUPPORTS_ATOMICS
 #include <cuda/atomic>
 #include <cuda/std/atomic>
